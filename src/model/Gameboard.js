@@ -1,5 +1,5 @@
-import { Box } from './Box';
-import { types } from './types/types';
+import { Box } from './Box.js';
+import { types } from './types/types.js';
 
 export class GameBoard {
 	boxes = [];

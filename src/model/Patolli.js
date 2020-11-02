@@ -1,5 +1,5 @@
-import { GameBoard } from './Gameboard';
-import { Player } from './Player';
+import { GameBoard } from './Gameboard.js';
+import { Player } from './Player.js';
 export class Patolli {
 	constructor(maxPlayers = 2, initialMoney = 100, piecesNumber = 2) {
 		this.maxPlayers = maxPlayers; // 4
