@@ -118,7 +118,7 @@ const showPatolliGame = (maxPlayers, initialMoney, piecesNumber) => {
 	divCanas.classList.add('divCanas');
 
 	btnCanas.appendChild(btnLanzarCanas)
-		
+
 	btnLanzarCanas.addEventListener('click', () => {
         
 		btnCanas.appendChild(divCanas)
@@ -130,6 +130,7 @@ const showPatolliGame = (maxPlayers, initialMoney, piecesNumber) => {
 		}, 1000)
 		
 	})
+
 	const boxStart = document.querySelectorAll('.start')
 	console.log(boxStart);
 
