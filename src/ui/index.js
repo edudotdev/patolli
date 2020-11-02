@@ -1,7 +1,6 @@
 //Main Container
 
 import { Patolli } from '../model/Patolli.js';
-import { Player } from '../model/Player.js';
 
 //Main Menu
 const divMainMenu = document.querySelector('.mainMenu');
@@ -10,7 +9,7 @@ const joinRoomButton = document.querySelector('#joinRoomButton');
 const mainContainer = document.querySelector('.mainContainer');
 //
 // Lanzar Canas
-const btnLanzarCanas = document.createElement('button')
+const btnLanzarCanas = document.createElement('button');
 const btnCanas = document.createElement('div');
 const divCanas = document.createElement('div');
 
@@ -82,66 +81,84 @@ const showJoinRoom = (e) => {
 
 const showPatolliGame = (maxPlayers, initialMoney, piecesNumber) => {
 	const patolli = new Patolli(maxPlayers, initialMoney, piecesNumber);
-	patolli.addPlayer(1, 'Edu', 'verde', 1000)
-	patolli.addPlayer(2, 'Adal', 'rojo', 1000)
+	patolli.addPlayer(1, 'Edu', 'verde', 1000);
+	patolli.addPlayer(2, 'Adal', 'rojo', 1000);
+	patolli.addPlayer(3, 'Zuniga', 'amarillo', 999);
+	patolli.addPlayer(3, 'Black', 'negro', 1000);
 
 	const boxes = patolli.getBoard().getBoxes();
 	const divTableroJugadores = document.createElement('div');
 	const divBoardLimit = document.createElement('div');
-	const divBoard = document.createElement('div'); 
-	const divJugadores = document.createElement('div'); 
-	
+	const divBoard = document.createElement('div');
+	const divJugadores = document.createElement('div');
+
 	divTableroJugadores.classList.add('tablero-jugadores');
 	divBoardLimit.classList.add('tableroLimite');
 	divBoard.classList.add('tablero');
 	divJugadores.classList.add('divJugadores');
 
+	const showJugadores = (jugadores) => { 
+	
+		jugadores.forEach(jugador => {
+			divJugadores.innerHTML += `<div class="containerJugadores"> <h2 class="namePlayer">${jugador.getName()}</h2> <span class="apuesta">Dinero Disponible: ${jugador.getInitialMoney()}</span> </div>`
+		});
+	}
+
+	showJugadores(patolli.getPlayers())
+
 	const boxesMapeadas = boxes.map(
 		(box) => `<div class='${box.getType()}'> ${box.getId()}</div>`
 	);
+
 	boxes.forEach(
 		(box) =>
-			(divBoard.innerHTML += `<div class='${box.getType()}'> ${box.getId()}</div>`)
+			(divBoard.innerHTML += `<div id='box${box.getId()}' class='${box.getType()}'> ${box.getId()}</div>`)
 	);
 
-	mainContainer.appendChild(divTableroJugadores); 
+	mainContainer.appendChild(divTableroJugadores);
 	divTableroJugadores.appendChild(divBoardLimit);
 	divTableroJugadores.appendChild(divJugadores);
 	divBoardLimit.appendChild(divBoard);
 
-	mainContainer.appendChild(btnCanas)
+	mainContainer.appendChild(btnCanas);
 
-	btnLanzarCanas.innerText = 'Lanzar Canas' 
+	btnLanzarCanas.innerText = 'Lanzar Canas';
 
-	btnLanzarCanas.classList.add('btnMainMenu')
+	btnLanzarCanas.classList.add('btnMainMenu');
 	btnCanas.classList.add('btnCanas');
 	divCanas.classList.add('divCanas');
 
-	btnCanas.appendChild(btnLanzarCanas)
+	btnCanas.appendChild(btnLanzarCanas);
 
 	btnLanzarCanas.addEventListener('click', () => {
-        
-		btnCanas.appendChild(divCanas)
-		const jugador = patolli.getPlayers()
-		divCanas.innerHTML = `<p class="numCanas">${jugador[0].rollDice()}</p>`
-        
-		setTimeout( () => {
-			divCanas.remove()
-		}, 1000)
-		
-	})
+		btnCanas.appendChild(divCanas);
+		const jugador = patolli.getPlayers();
+		const lanzamiento = jugador[0].rollDice();
+		divCanas.innerHTML = `<p class="numCanas">${lanzamiento}</p>`;
 
-	const boxStart = document.querySelectorAll('.start')
+		setTimeout(() => {
+			divCanas.remove();
+		}, 1000);
+
+		const fichaDiv = document.createElement('div');
+		fichaDiv.classList.add('ficha');
+		const ficha = jugador[0].getPieces()[0];
+		let casillaSelected = document.querySelector(
+			`#box${ficha.getPosition()}`
+		);
+		casillaSelected.innerHTML = '';
+		jugador[0].movePiece(ficha.getId(), lanzamiento);
+		casillaSelected = document.querySelector(
+			`#box${ficha.getPosition()}`
+		);
+		casillaSelected.appendChild(fichaDiv);
+	});
+	const boxStart = document.querySelectorAll('.start');
 	console.log(boxStart);
 
-	boxStart.forEach(ele =>  {
-		ele.addEventListener('click', () =>  {
-			ele.innerHTML = 'Verga'
-		})
-	})
+	boxStart.forEach((ele) => {
+		ele.addEventListener('click', () => {
+			ele.innerHTML = 'Verga';
+		});
+	});
 };
- 
-
-
-
-

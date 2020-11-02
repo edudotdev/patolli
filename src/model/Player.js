@@ -65,6 +65,15 @@ export class Player {
 		return this.id;
 	}
 
+	getName() {
+		return this.name;
+	}
+
+	getInitialMoney() {
+		return this.initialMoney;
+	}
+
+
 	getPieces() {
 		return this.pieces;
 	}

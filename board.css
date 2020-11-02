@@ -1,13 +1,13 @@
 .tableroLimite {
-	width: 900px;
-	height: 900px;
+	width: 800px;
+	height: 800px;
 	overflow: hidden;
 	margin: 0;
 }
 
 .tablero {
-	width: 900px;
-	height: 900px;
+	width: 800px;
+	height: 800px;
 	display: grid;
 	grid-template-columns: repeat(16, 1fr);
 	grid-template-rows: repeat(16, 1fr);
@@ -42,31 +42,22 @@
 }
 .tablero div:nth-child(5)::after {
 	content: '';
-	/* position: absolute;
-	width: 50px;
-	height: 50px;
-	left: 0;
-	bottom: 0px;
-	transform: rotate(45deg) ;
-	background: #000;
-	z-index: 4;  */
-	 position: absolute;
+	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24px;
-	top: -26px;
-	transform: rotate(180deg) scale(.55);
-
+	left: -27px;
+    top: -28px;
+    transform: rotate(180deg) scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 100px solid red; 
+	border-bottom: 100px solid red;
 }
 
 .tablero div:nth-child(5) {
 	position: relative;
 	background: transparent;
 	overflow: hidden;
-	border: none; 
+	border: none;
 	grid-column: 3;
 	grid-row: 8;
 }
@@ -103,10 +94,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24.5px;
-	top: -24px;
-	transform: scale(.55);
-	
+	left: -26.5px;
+    top: -27px;
+    transform: scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -161,9 +151,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24.5px;
-	top: -24px;
-	transform: rotate(90deg) scale(.55);
+	left: -26.5px;
+    top: -27px;
+    transform: rotate(90deg) scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -202,9 +192,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24.5px;
-	top: -24px;
-	transform: rotate(-90deg) scale(.55);
+	left: -26.5px;
+    top: -27px;
+    transform: rotate(-90deg) scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -259,10 +249,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24.5px;
-	top: -24px;
-	transform: scale(.55);
-	
+	left: -26.5px;
+    top: -27px;
+    transform: scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -302,9 +291,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24px;
-	top: -26px;
-	transform: rotate(180deg) scale(.55);
+	left: -27px;
+    top: -28px;
+    transform: rotate(180deg) scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -359,9 +348,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24.5px;
-	top: -24px;
-	transform: rotate(-90deg) scale(.55);
+	left: -26.5px;
+    top: -27px;
+    transform: rotate(-90deg) scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -400,9 +389,9 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: -24.5px;
-	top: -24px;
-	transform: rotate(90deg) scale(.55);
+	left: -26.5px;
+    top: -27px;
+    transform: rotate(90deg) scale(0.45);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	border-bottom: 100px solid red;
@@ -431,7 +420,6 @@
 .start {
 	background: coral;
 }
-
 .normal {
 	background: rgb(242 203 159);
 }
@@ -447,4 +435,12 @@
 .rounded {
 	background: #e7a757;
 	transform: scale(1);
+}
+
+/* Fichas */
+
+.ficha {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
 }
