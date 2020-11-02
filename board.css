@@ -40,7 +40,33 @@
 	grid-column: 4;
 	grid-row: 8;
 }
+.tablero div:nth-child(5)::after {
+	content: '';
+	/* position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 0;
+	bottom: 0px;
+	transform: rotate(45deg) ;
+	background: #000;
+	z-index: 4;  */
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24px;
+	top: -26px;
+	transform: rotate(180deg) scale(0.55);
+
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(5) {
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 	grid-column: 3;
 	grid-row: 8;
 }
@@ -65,9 +91,27 @@
 	grid-row: 9;
 }
 .tablero div:nth-child(10) {
+	position: relative;
 	grid-column: 3;
 	grid-row: 9;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 }
+.tablero div:nth-child(10)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24.5px;
+	top: -24px;
+	transform: scale(0.55);
+
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(11) {
 	grid-column: 4;
 	grid-row: 9;
@@ -107,7 +151,24 @@
 .tablero div:nth-child(20) {
 	grid-column: 8;
 	grid-row: 14;
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 }
+.tablero div:nth-child(20)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24.5px;
+	top: -24px;
+	transform: rotate(90deg) scale(0.55);
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(21) {
 	grid-column: 8;
 	grid-row: 15;
@@ -131,7 +192,24 @@
 .tablero div:nth-child(25) {
 	grid-column: 9;
 	grid-row: 14;
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 }
+.tablero div:nth-child(25)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24.5px;
+	top: -24px;
+	transform: rotate(-90deg) scale(0.55);
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(26) {
 	grid-column: 9;
 	grid-row: 13;
@@ -171,7 +249,25 @@
 .tablero div:nth-child(35) {
 	grid-column: 14;
 	grid-row: 9;
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 }
+.tablero div:nth-child(35)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24.5px;
+	top: -24px;
+	transform: scale(0.55);
+
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(36) {
 	grid-column: 15;
 	grid-row: 9;
@@ -195,7 +291,25 @@
 .tablero div:nth-child(40) {
 	grid-column: 14;
 	grid-row: 8;
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 }
+
+.tablero div:nth-child(40)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24px;
+	top: -26px;
+	transform: rotate(180deg) scale(0.55);
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(41) {
 	grid-column: 13;
 	grid-row: 8;
@@ -235,7 +349,24 @@
 .tablero div:nth-child(50) {
 	grid-column: 9;
 	grid-row: 3;
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
 }
+.tablero div:nth-child(50)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24.5px;
+	top: -24px;
+	transform: rotate(-90deg) scale(0.55);
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
 .tablero div:nth-child(51) {
 	grid-column: 9;
 	grid-row: 2;
@@ -259,6 +390,22 @@
 .tablero div:nth-child(55) {
 	grid-column: 8;
 	grid-row: 3;
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+	border: none;
+}
+.tablero div:nth-child(55)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -24.5px;
+	top: -24px;
+	transform: rotate(90deg) scale(0.55);
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
 }
 .tablero div:nth-child(56) {
 	grid-column: 8;
@@ -284,7 +431,6 @@
 .start {
 	background: coral;
 }
-
 .normal {
 	background: rgb(242 203 159);
 }
