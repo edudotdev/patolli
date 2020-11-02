@@ -1,6 +1,7 @@
 //Main Container
 
 import { Patolli } from '../model/Patolli.js';
+import { Player } from '../model/Player.js';
 
 //Main Menu
 const divMainMenu = document.querySelector('.mainMenu');
@@ -8,6 +9,11 @@ const createRoomButton = document.querySelector('#createRoomButton');
 const joinRoomButton = document.querySelector('#joinRoomButton');
 const mainContainer = document.querySelector('.mainContainer');
 //
+// Lanzar Canas
+const btnLanzarCanas = document.createElement('button')
+const btnCanas = document.createElement('div');
+const divCanas = document.createElement('div');
+
 createRoomButton.addEventListener('click', () => {
 	divMainMenu.style.display = 'none';
 	showCreateRoom();
@@ -41,7 +47,7 @@ createRoomButton.addEventListener('click', () => {
 const showCreateRoom = () => {
 	const createRoomDiv = document.createElement('div');
 	createRoomDiv.innerHTML = `
-        <div class="createRoomDiv">
+        <div class="createRoomDiv container">
             <h2 class="title">Configurar Juego</h2>  
             <form class="formulario">            
                 <input id="nJugadores" type="number" placeholder="Numero de Jugadores" min="2" max="4" />
@@ -76,9 +82,20 @@ const showJoinRoom = (e) => {
 
 const showPatolliGame = (maxPlayers, initialMoney, piecesNumber) => {
 	const patolli = new Patolli(maxPlayers, initialMoney, piecesNumber);
+	patolli.addPlayer(1, 'Edu', 'verde', 1000)
+	patolli.addPlayer(2, 'Adal', 'rojo', 1000)
+
 	const boxes = patolli.getBoard().getBoxes();
-	const divBoard = document.createElement('div');
+	const divTableroJugadores = document.createElement('div');
+	const divBoardLimit = document.createElement('div');
+	const divBoard = document.createElement('div'); 
+	const divJugadores = document.createElement('div'); 
+	
+	divTableroJugadores.classList.add('tablero-jugadores');
+	divBoardLimit.classList.add('tableroLimite');
 	divBoard.classList.add('tablero');
+	divJugadores.classList.add('divJugadores');
+
 	const boxesMapeadas = boxes.map(
 		(box) => `<div class='${box.getType()}'> ${box.getId()}</div>`
 	);
@@ -87,5 +104,43 @@ const showPatolliGame = (maxPlayers, initialMoney, piecesNumber) => {
 			(divBoard.innerHTML += `<div class='${box.getType()}'> ${box.getId()}</div>`)
 	);
 
-	mainContainer.appendChild(divBoard);
+	mainContainer.appendChild(divTableroJugadores); 
+	divTableroJugadores.appendChild(divBoardLimit);
+	divTableroJugadores.appendChild(divJugadores);
+	divBoardLimit.appendChild(divBoard);
+
+	mainContainer.appendChild(btnCanas)
+
+	btnLanzarCanas.innerText = 'Lanzar Canas' 
+
+	btnLanzarCanas.classList.add('btnMainMenu')
+	btnCanas.classList.add('btnCanas');
+	divCanas.classList.add('divCanas');
+
+	btnCanas.appendChild(btnLanzarCanas)
+		
+	btnLanzarCanas.addEventListener('click', () => {
+        
+		btnCanas.appendChild(divCanas)
+		const jugador = patolli.getPlayers()
+		divCanas.innerHTML = `<p class="numCanas">${jugador[0].rollDice()}</p>`
+        
+		setTimeout( () => {
+			divCanas.remove()
+		}, 1000)
+		
+	})
+	const boxStart = document.querySelectorAll('.start')
+	console.log(boxStart);
+
+	boxStart.forEach(ele =>  {
+		ele.addEventListener('click', () =>  {
+			ele.innerHTML = 'Verga'
+		})
+	})
 };
+ 
+
+
+
+

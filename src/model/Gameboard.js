@@ -33,6 +33,13 @@ export class GameBoard {
 				i === 52
 			) {
 				this.boxes.push(new Box(i, types.ROUNDED));
+			} else if(
+				i === 0 ||
+				i === 45 ||
+				i === 15 ||
+				i === 30 
+			) {
+				this.boxes.push(new Box(i, types.START));
 			} else {
 				this.boxes.push(new Box(i, types.NORMAL));
 			}

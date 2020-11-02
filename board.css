@@ -1,5 +1,11 @@
+.tableroLimite {
+	width: 900px;
+	height: 900px;
+	overflow: hidden;
+	margin: 0;
+}
+
 .tablero {
-	margin: 0 auto;
 	width: 900px;
 	height: 900px;
 	display: grid;
@@ -273,6 +279,10 @@
 .tablero div:nth-child(60) {
 	grid-column: 8;
 	grid-row: 8;
+}
+
+.start {
+	background: coral;
 }
 
 .normal {
